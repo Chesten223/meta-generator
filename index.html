@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Tag Generator — Free SEO Meta Tag Creator</title>
+<meta name="description" content="Free online meta tag generator for SEO. Create perfect title tags, meta descriptions, Open Graph, Twitter Cards, and JSON-LD markup instantly.">
+<meta name="keywords" content="meta tag generator, SEO meta tags, Open Graph generator, Twitter Card generator, JSON-LD generator, meta description generator">
+<meta name="author" content="Meta Tag Generator">
+<link rel="canonical" href="https://meta-generator.pages.dev/">
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="Meta Tag Generator — Free SEO Meta Tag Creator">
+<meta property="og:description" content="Free online meta tag generator for SEO. Create perfect title tags, meta descriptions, Open Graph, Twitter Cards, and JSON-LD markup instantly.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://meta-generator.pages.dev/og-image.png">
+<meta property="og:url" content="https://meta-generator.pages.dev/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meta Tag Generator — Free SEO Meta Tag Creator">
+<meta name="twitter:description" content="Free online meta tag generator for SEO. Create perfect title tags, meta descriptions, Open Graph, Twitter Cards, and JSON-LD markup instantly.">
+<meta name="twitter:image" content="https://meta-generator.pages.dev/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Meta Tag Generator",
+  "description": "Free online meta tag generator for SEO. Create perfect title tags, meta descriptions, Open Graph, Twitter Cards, and JSON-LD markup instantly.",
+  "url": "https://meta-generator.pages.dev/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Real-time character counting with color indicators",
+    "Google search result preview",
+    "Twitter Card preview",
+    "One-click copy and HTML download"
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2128;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--green:#3fb950;--yellow:#d29922;--red:#f85149;--radius:8px}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+header{text-align:center;padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0d1117 0%,#161b22 100%)}
+header h1{font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,#58a6ff,#bc8cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+header p{color:var(--text2);font-size:1.1rem;max-width:600px;margin:0 auto}
+
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+
+.section-title{font-size:1.4rem;font-weight:600;margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+
+/* Presets */
+.presets{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.presets button{padding:.45rem 1rem;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:.85rem;transition:all .2s}
+.presets button:hover,.presets button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Layout */
+.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:800px){.main-grid{grid-template-columns:1fr}}
+
+/* Form */
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.85rem;font-weight:500;color:var(--text2);margin-bottom:.3rem}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.55rem .75rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.9rem;font-family:inherit;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:60px}
+.char-info{font-size:.75rem;margin-top:.2rem;display:flex;justify-content:space-between}
+.char-info .count{font-weight:600}
+.char-info .count.green{color:var(--green)}
+.char-info .count.yellow{color:var(--yellow)}
+.char-info .count.red{color:var(--red)}
+.char-bar{height:3px;border-radius:2px;background:var(--border);margin-top:.25rem;overflow:hidden}
+.char-bar-fill{height:100%;border-radius:2px;transition:width .3s,background .3s}
+
+.row-2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(max-width:500px){.row-2{grid-template-columns:1fr}}
+
+.section-divider{margin:2rem 0;padding-top:1.5rem;border-top:1px solid var(--border)}
+
+/* Preview cards */
+.preview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;margin-bottom:1.5rem}
+.preview-card h3{font-size:1rem;color:var(--text2);margin-bottom:.8rem;font-weight:500}
+
+/* Google preview */
+.google-preview{background:#fff;border-radius:var(--radius);padding:1.2rem;color:#202124}
+.google-preview .g-url{font-size:.8rem;color:#4d5156;margin-bottom:.15rem;word-break:break-all}
+.google-preview .g-title{font-size:1.15rem;color:#1a0dab;margin-bottom:.3rem;line-height:1.3;word-break:break-word}
+.google-preview .g-desc{font-size:.85rem;color:#4d5156;line-height:1.5;word-break:break-word}
+
+/* Twitter preview */
+.twitter-card{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.twitter-card .tc-img{width:100%;height:180px;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:.85rem;overflow:hidden}
+.twitter-card .tc-img img{width:100%;height:100%;object-fit:cover}
+.twitter-card .tc-body{padding:.8rem 1rem}
+.twitter-card .tc-domain{font-size:.75rem;color:var(--text2)}
+.twitter-card .tc-title{font-size:.95rem;font-weight:600;margin:.15rem 0;color:var(--text);line-height:1.3}
+.twitter-card .tc-desc{font-size:.8rem;color:var(--text2);line-height:1.4}
+
+/* Code output */
+.code-block{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.code-block pre{padding:1rem;overflow-x:auto;font-size:.8rem;font-family:'SF Mono',SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;line-height:1.6;color:#e6edf3;white-space:pre-wrap;word-break:break-all}
+.code-actions{display:flex;gap:.5rem;padding:.6rem 1rem;background:var(--surface2);border-bottom:1px solid var(--border)}
+.code-actions button{padding:.35rem .8rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:.8rem;transition:all .2s}
+.code-actions button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Features */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin:2rem 0}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center}
+.feature-card .icon{font-size:2rem;margin-bottom:.6rem}
+.feature-card h3{font-size:1rem;margin-bottom:.4rem}
+.feature-card p{font-size:.85rem;color:var(--text2)}
+
+/* FAQ */
+.faq-list{margin:2rem 0}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.8rem;overflow:hidden}
+.faq-q{padding:1rem 1.2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;background:var(--surface);user-select:none}
+.faq-q:hover{background:var(--surface2)}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--text2);transition:transform .2s}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{padding:0 1.2rem;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;color:var(--text2);font-size:.9rem;line-height:1.7}
+.faq-item.open .faq-a{max-height:300px;padding:0 1.2rem 1rem}
+
+/* Email widget */
+.email-widget{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:2rem 0}
+.email-widget h3{font-size:1.1rem;margin-bottom:.4rem}
+.email-widget p{color:var(--text2);font-size:.9rem;margin-bottom:1rem}
+.email-widget a{color:var(--accent);font-size:1rem;word-break:break-all}
+
+/* Footer */
+footer{text-align:center;padding:2rem 1.5rem;border-top:1px solid var(--border);color:var(--text2);font-size:.8rem}
+footer a{color:var(--accent);margin:0 .5rem}
+
+/* Cross-links */
+.cross-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
+.cross-links a{padding:.5rem 1rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.85rem;transition:all .2s}
+.cross-links a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+/* Notification */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--green);color:#fff;padding:.7rem 1.2rem;border-radius:var(--radius);font-size:.85rem;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none;z-index:999}
+.toast.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Meta Tag Generator</h1>
+  <p>Free SEO meta tag creator with live previews. Generate perfect title tags, descriptions, Open Graph, Twitter Cards &amp; JSON-LD markup in seconds.</p>
+</header>
+
+<div class="container">
+
+  <!-- Presets -->
+  <div class="presets" id="presets">
+    <button data-preset="blog">Blog Post</button>
+    <button data-preset="product">Product Page</button>
+    <button data-preset="landing">Landing Page</button>
+    <button data-preset="portfolio">Portfolio</button>
+    <button data-preset="article">Article</button>
+  </div>
+
+  <div class="main-grid">
+    <!-- LEFT: Form -->
+    <div>
+      <h2 class="section-title">Basic Meta Tags</h2>
+
+      <div class="form-group">
+        <label for="pageTitle">Page Title</label>
+        <input type="text" id="pageTitle" placeholder="My Awesome Website">
+        <div class="char-info"><span>Recommended: 50–60 characters</span><span class="count" id="titleCount">0</span></div>
+        <div class="char-bar"><div class="char-bar-fill" id="titleBar"></div></div>
+      </div>
+
+      <div class="form-group">
+        <label for="pageDesc">Description</label>
+        <textarea id="pageDesc" rows="3" placeholder="A brief description of your page..."></textarea>
+        <div class="char-info"><span>Recommended: 150–160 characters</span><span class="count" id="descCount">0</span></div>
+        <div class="char-bar"><div class="char-bar-fill" id="descBar"></div></div>
+      </div>
+
+      <div class="form-group">
+        <label for="keywords">Keywords</label>
+        <input type="text" id="keywords" placeholder="keyword1, keyword2, keyword3">
+      </div>
+
+      <div class="row-2">
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" id="author" placeholder="Author name">
+        </div>
+        <div class="form-group">
+          <label for="canonical">Canonical URL</label>
+          <input type="url" id="canonical" placeholder="https://example.com/page">
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="form-group">
+          <label for="robotsIndex">Robots Index</label>
+          <select id="robotsIndex">
+            <option value="index">index</option>
+            <option value="noindex">noindex</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="robotsFollow">Robots Follow</label>
+          <select id="robotsFollow">
+            <option value="follow">follow</option>
+            <option value="nofollow">nofollow</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="form-group">
+          <label for="viewport">Viewport</label>
+          <input type="text" id="viewport" value="width=device-width, initial-scale=1.0">
+        </div>
+        <div class="form-group">
+          <label for="themeColor">Theme Color</label>
+          <input type="color" id="themeColor" value="#0d1117" style="height:38px;padding:4px">
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+      <h2 class="section-title">Open Graph</h2>
+
+      <div class="form-group">
+        <label for="ogTitle">OG Title</label>
+        <input type="text" id="ogTitle" placeholder="Same as page title or custom">
+      </div>
+      <div class="form-group">
+        <label for="ogDesc">OG Description</label>
+        <textarea id="ogDesc" rows="2" placeholder="Same as description or custom"></textarea>
+      </div>
+      <div class="row-2">
+        <div class="form-group">
+          <label for="ogImage">OG Image URL</label>
+          <input type="url" id="ogImage" placeholder="https://example.com/image.jpg">
+        </div>
+        <div class="form-group">
+          <label for="ogType">OG Type</label>
+          <select id="ogType">
+            <option value="website">website</option>
+            <option value="article">article</option>
+            <option value="product">product</option>
+            <option value="profile">profile</option>
+            <option value="book">book</option>
+            <option value="music.song">music.song</option>
+            <option value="video.movie">video.movie</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+      <h2 class="section-title">Twitter Card</h2>
+
+      <div class="form-group">
+        <label for="twCardType">Twitter Card Type</label>
+        <select id="twCardType">
+          <option value="summary">summary</option>
+          <option value="summary_large_image">summary_large_image</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="twSite">Twitter Site (@handle)</label>
+        <input type="text" id="twSite" placeholder="@yoursite">
+      </div>
+      <div class="form-group">
+        <label for="twTitle">Twitter Title</label>
+        <input type="text" id="twTitle" placeholder="Same as page title or custom">
+      </div>
+      <div class="form-group">
+        <label for="twDesc">Twitter Description</label>
+        <textarea id="twDesc" rows="2" placeholder="Same as description or custom"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="twImage">Twitter Image URL</label>
+        <input type="url" id="twImage" placeholder="https://example.com/twitter-image.jpg">
+      </div>
+    </div>
+
+    <!-- RIGHT: Preview + Code -->
+    <div>
+      <div class="preview-card">
+        <h3>Google Search Preview</h3>
+        <div class="google-preview">
+          <div class="g-url" id="gUrl">https://example.com</div>
+          <div class="g-title" id="gTitle">Page Title</div>
+          <div class="g-desc" id="gDesc">Your page description will appear here...</div>
+        </div>
+      </div>
+
+      <div class="preview-card">
+        <h3>Twitter Card Preview</h3>
+        <div class="twitter-card">
+          <div class="tc-img" id="tcImg">Image Preview</div>
+          <div class="tc-body">
+            <div class="tc-domain" id="tcDomain">example.com</div>
+            <div class="tc-title" id="tcTitle">Twitter Title</div>
+            <div class="tc-desc" id="tcDesc">Twitter description...</div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Generated Code</h2>
+      <div class="code-block">
+        <div class="code-actions">
+          <button onclick="copyCode()">📋 Copy All</button>
+          <button onclick="downloadCode()">⬇ Download HTML</button>
+        </div>
+        <pre id="codeOutput">&lt;!-- Fill in the form to generate meta tags --&gt;</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="section-divider"></div>
+  <h2 class="section-title" style="text-align:center">Features</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Live Character Counting</h3>
+      <p>Real-time character counters with green/yellow/red color indicators for optimal SEO title and description lengths.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔍</div>
+      <h3>Google &amp; Twitter Previews</h3>
+      <p>See exactly how your page will look in Google search results and Twitter card previews before publishing.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Instant Code Generation</h3>
+      <p>Generate all meta tags, Open Graph, Twitter Cards, and JSON-LD structured data with one click — ready to paste into your HTML.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🧩</div>
+      <h3>Smart Presets</h3>
+      <p>Pre-configured templates for Blog Posts, Product Pages, Landing Pages, Portfolios, and Articles to get started fast.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-divider"></div>
+  <h2 class="section-title" style="text-align:center">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What are meta tags and why are they important for SEO?</div>
+      <div class="faq-a">Meta tags are HTML elements that provide structured metadata about a web page. Search engines use meta tags like <code>&lt;title&gt;</code> and <code>&lt;meta name="description"&gt;</code> to understand and display your page in search results. Properly optimized meta tags improve click-through rates, social sharing appearance, and overall search visibility.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is the ideal length for a meta title and description?</div>
+      <div class="faq-a">Google typically displays up to 60 characters for a title tag and up to 155–160 characters for a meta description. Staying within these limits ensures your content won't be truncated in search results. Our tool provides real-time character counters with visual indicators so you can hit the sweet spot every time.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is the difference between Open Graph and Twitter Card meta tags?</div>
+      <div class="faq-a">Open Graph (OG) meta tags were created by Facebook and are used by many platforms (Facebook, LinkedIn, Discord, etc.) to display rich link previews. Twitter Cards are Twitter's own meta tags for controlling how links appear in tweets. While Twitter can fall back to OG tags, using both ensures the best appearance on every platform. Our generator creates both sets automatically.</div>
+    </div>
+  </div>
+
+  <!-- Email Widget -->
+  <div class="email-widget">
+    <h3>📧 Questions or Feedback?</h3>
+    <p>Have suggestions for improving this tool? We'd love to hear from you.</p>
+    <a href="mailto:hello@meta-generator.pages.dev">hello@meta-generator.pages.dev</a>
+  </div>
+
+  <!-- Cross-links -->
+  <div class="cross-links">
+    <a href="sitemap.xml">📄 Sitemap</a>
+    <a href="robots.txt">🤖 Robots.txt</a>
+    <a href="#top">⬆ Back to Top</a>
+  </div>
+
+</div>
+
+<footer id="top">
+  <p>© 2026 Meta Tag Generator — Free SEO Meta Tag Creator</p>
+  <p>
+    <a href="sitemap.xml">Sitemap</a>
+    <a href="robots.txt">Robots.txt</a>
+  </p>
+</footer>
+
+<div class="toast" id="toast">Copied to clipboard!</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+const presetData = {
+  blog: { title: 'Blog Post Title — My Blog', desc: 'An insightful blog post about topic. Learn key takeaways and actionable tips in this comprehensive guide.', keywords: 'blog, article, tips, guide', author: 'Blog Author', robots: ['index','follow'], ogType: 'article', twCard: 'summary_large_image' },
+  product: { title: 'Product Name — Buy Online | Store', desc: 'Shop Product Name at the best price. Free shipping available. Read reviews and specifications.', keywords: 'product, buy, online, shop, price', author: 'Store Name', robots: ['index','follow'], ogType: 'product', twCard: 'summary_large_image' },
+  landing: { title: 'Transform Your Workflow — Tool Name', desc: 'Discover how Tool Name helps you achieve results faster. Start your free trial today and see the difference.', keywords: 'saas, tool, productivity, free trial', author: 'Company', robots: ['index','follow'], ogType: 'website', twCard: 'summary_large_image' },
+  portfolio: { title: 'Your Name — Designer & Developer', desc: 'Portfolio of Your Name — a creative designer and developer specializing in modern web experiences.', keywords: 'portfolio, designer, developer, web', author: 'Your Name', robots: ['index','follow'], ogType: 'profile', twCard: 'summary' },
+  article: { title: 'Article Title — Publication Name', desc: 'In-depth article covering the latest trends and insights. Expert analysis and practical advice for professionals.', keywords: 'article, news, analysis, insights', author: 'Author Name', robots: ['index','follow'], ogType: 'article', twCard: 'summary_large_image' }
+};
+
+document.querySelectorAll('#presets button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#presets button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const p = presetData[btn.dataset.preset];
+    $('pageTitle').value = p.title;
+    $('pageDesc').value = p.desc;
+    $('keywords').value = p.keywords;
+    $('author').value = p.author;
+    $('robotsIndex').value = p.robots[0];
+    $('robotsFollow').value = p.robots[1];
+    $('ogTitle').value = '';
+    $('ogDesc').value = '';
+    $('ogType').value = p.ogType;
+    $('twCardType').value = p.twCard;
+    $('twTitle').value = '';
+    $('twDesc').value = '';
+    update();
+  });
+});
+
+function charStatus(len, opt) {
+  if (len <= opt) return 'green';
+  if (len <= opt + 20) return 'yellow';
+  return 'red';
+}
+
+function updateBar(bar, count, len, opt) {
+  const pct = Math.min(len / (opt + 30) * 100, 100);
+  const s = charStatus(len, opt);
+  bar.style.width = pct + '%';
+  bar.style.background = s === 'green' ? 'var(--green)' : s === 'yellow' ? 'var(--yellow)' : 'var(--red)';
+  count.textContent = len;
+  count.className = 'count ' + s;
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function getDomain(url) {
+  try { return new URL(url).hostname; } catch { return url || 'example.com'; }
+}
+
+function update() {
+  const title = $('pageTitle').value;
+  const desc = $('pageDesc').value;
+  const kw = $('keywords').value;
+  const author = $('author').value;
+  const canon = $('canonical').value;
+  const rIndex = $('robotsIndex').value;
+  const rFollow = $('robotsFollow').value;
+  const vp = $('viewport').value;
+  const tc = $('themeColor').value;
+  const ogTitle = $('ogTitle').value || title;
+  const ogDesc = $('ogDesc').value || desc;
+  const ogImg = $('ogImage').value;
+  const ogType = $('ogType').value;
+  const twType = $('twCardType').value;
+  const twSite = $('twSite').value;
+  const twTitle = $('twTitle').value || title;
+  const twDesc = $('twDesc').value || desc;
+  const twImg = $('twImage').value || ogImg;
+
+  // Char counters
+  updateBar($('titleBar'), $('titleCount'), title.length, 60);
+  updateBar($('descBar'), $('descCount'), desc.length, 155);
+
+  // Google preview
+  $('gUrl').textContent = canon || 'https://example.com';
+  $('gTitle').textContent = title || 'Page Title';
+  $('gDesc').textContent = desc || 'Your page description will appear here...';
+
+  // Twitter preview
+  const tcImgEl = $('tcImg');
+  if (twImg) {
+    tcImgEl.innerHTML = '<img src="' + esc(twImg) + '" onerror="this.parentElement.textContent=\'Image failed to load\'">';
+  } else {
+    tcImgEl.textContent = twType === 'summary_large_image' ? 'Large Image Preview (1200×628 recommended)' : 'Image Preview';
+  }
+  $('tcDomain').textContent = getDomain(canon);
+  $('tcTitle').textContent = twTitle || 'Twitter Title';
+  $('tcDesc').textContent = twDesc || 'Twitter description...';
+
+  // Generate code
+  let lines = [];
+  lines.push('<title>' + esc(title || 'Your Page Title') + '</title>');
+  lines.push('<meta name="description" content="' + esc(desc || '') + '">');
+  if (kw) lines.push('<meta name="keywords" content="' + esc(kw) + '">');
+  if (author) lines.push('<meta name="author" content="' + esc(author) + '">');
+  if (canon) lines.push('<link rel="canonical" href="' + esc(canon) + '">');
+  lines.push('<meta name="robots" content="' + rIndex + ', ' + rFollow + '">');
+  lines.push('<meta name="viewport" content="' + esc(vp) + '">');
+  lines.push('<meta name="theme-color" content="' + tc + '">');
+  lines.push('');
+
+  // Open Graph
+  lines.push('<!-- Open Graph -->');
+  lines.push('<meta property="og:title" content="' + esc(ogTitle || title) + '">');
+  lines.push('<meta property="og:description" content="' + esc(ogDesc || desc) + '">');
+  lines.push('<meta property="og:type" content="' + ogType + '">');
+  if (canon) lines.push('<meta property="og:url" content="' + esc(canon) + '">');
+  if (ogImg) lines.push('<meta property="og:image" content="' + esc(ogImg) + '">');
+  lines.push('');
+
+  // Twitter
+  lines.push('<!-- Twitter Card -->');
+  lines.push('<meta name="twitter:card" content="' + twType + '">');
+  if (twSite) lines.push('<meta name="twitter:site" content="' + esc(twSite) + '">');
+  lines.push('<meta name="twitter:title" content="' + esc(twTitle || title) + '">');
+  lines.push('<meta name="twitter:description" content="' + esc(twDesc || desc) + '">');
+  if (twImg) lines.push('<meta name="twitter:image" content="' + esc(twImg) + '">');
+  lines.push('');
+
+  // JSON-LD
+  const ld = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title || '',
+    "description": desc || '',
+    "url": canon || ''
+  };
+  if (ogImg) ld.image = ogImg;
+  lines.push('<!-- JSON-LD -->');
+  lines.push('<script type="application/ld+json">');
+  lines.push(JSON.stringify(ld, null, 2));
+  lines.push('<\/script>');
+
+  $('codeOutput').textContent = lines.join('\n');
+}
+
+// Bind all inputs
+document.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('input', update);
+  el.addEventListener('change', update);
+});
+
+function showToast(msg) {
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function copyCode() {
+  navigator.clipboard.writeText($('codeOutput').textContent).then(() => showToast('Copied to clipboard!'));
+}
+
+function downloadCode() {
+  const blob = new Blob([$('codeOutput').textContent], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'meta-tags.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('Downloaded meta-tags.html');
+}
+
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+update();
+</script>
+</body>
+</html>
